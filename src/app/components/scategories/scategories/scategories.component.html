@@ -1,0 +1,60 @@
+<h1
+  class="text-4xl font-extrabold tracking-tight text-gray-700 md:text-5xl lg:text-6xl text-center my-10"
+>
+  Sous Categories
+</h1>
+<section class="container mx-auto">
+  <a
+    routerLink="/addscategorie"
+    class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-4 text-center"
+    >Add sous category</a
+  >
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-200">
+        <tr>
+          <th scope="col" class="px-16 py-3">Image</th>
+          <th scope="col" class="px-6 py-3">Category Id</th>
+          <th scope="col" class="px-6 py-3">Sous Category</th>
+
+          <th scope="col" class="px-6 py-3">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (scategorie of scategories(); track scategorie.nomscategorie) {
+        <tr class="border">
+          <td class="p-4">
+            <img
+              [src]="scategorie.imagescategorie"
+              class="w-16 md:w-32 max-w-full max-h-full"
+              alt="{{ scategorie.nomscategorie }}"
+            />
+          </td>
+          <td class="px-6 py-4 font-semibold text-gray-900">
+            {{ scategorie.categorieID }}
+          </td>
+          <td class="px-6 py-4 font-semibold text-gray-900">
+            {{ scategorie.nomscategorie }}
+          </td>
+          <td class="px-6 py-4">
+            <button
+              (click)="deleteScategorie(scategorie)"
+              type="button"
+              class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+            >
+              Delete
+            </button>
+            <button
+              type="button"
+              class="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:focus:ring-yellow-900"
+            >
+              Update
+            </button>
+          </td>
+        </tr>
+
+        }
+      </tbody>
+    </table>
+  </div>
+</section>
