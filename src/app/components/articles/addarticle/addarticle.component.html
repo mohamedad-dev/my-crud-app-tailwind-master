@@ -1,1 +1,112 @@
-<p>addarticle works!</p>
+<div class="w-full max-w-lg mx-auto my-6">
+    <form class="bg-white shadow rounded px-8 pt-6 pb-8" >
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="reference">
+          Article reference
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="reference"
+          type="text"
+          placeholder="Technology"
+          name="reference"
+          [(ngModel)]="newArticle().reference"
+          required
+        />
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="designation">
+          Article designation
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="designation"
+          type="text"
+          placeholder="Technology"
+          name="designation"
+          [(ngModel)]="newArticle().designation"
+          required
+        />
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="qtestock">
+          Article qtestock
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="qtestock"
+          type="text"
+          placeholder="Technology"
+          name="qtestock"
+          [(ngModel)]="newArticle().qtestock"
+          required
+        />
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="marque">
+          Article marque
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="marque"
+          type="text"
+          placeholder="Technology"
+          name="marque"
+          [(ngModel)]="newArticle().marque"
+          required
+        />
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="prix">
+          Article prix
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="prix"
+          type="text"
+          placeholder="Technology"
+          name="prix"
+          [(ngModel)]="newArticle().prix"
+          required
+        />
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="imageart">
+          Article imageart
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="imageart"
+          type="text"
+          placeholder="Technology"
+          name="imageart"
+          [(ngModel)]="newArticle().imageart"
+          required
+        />
+      </div>
+      <div class="mb-4">
+        <label for="scategorieID" class="block text-gray-700 text-sm font-bold mb-2">Select an option</label>
+        <select id="scategorieID" name="scategorieID" [(ngModel)]="newArticle().scategorieID" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+          <option selected>Select</option>
+          @for (scategorie of scategories(); track scategorie._id) {
+            <option value={{scategorie._id}}>{{scategorie.nomscategorie}}</option>
+          }
+        </select>
+        {{newArticle().scategorieID}}
+        
+      </div>
+      
+      <div class="flex items-center justify-between">
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="submit"
+          (click)="addArticle()"
+        >
+          Add category
+        </button>
+        <a routerLink="/articles" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >Go back</a>
+      </div>
+    </form>
+  </div>
+  

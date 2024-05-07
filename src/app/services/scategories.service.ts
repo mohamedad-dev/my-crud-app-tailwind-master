@@ -8,7 +8,7 @@ import { Scategorie } from '../classes/scategorie';
 export class ScategoriesService {
   private url = 'http://localhost:3001/api/scategories';
 
-  http = inject(HttpClient);
+  private http = inject(HttpClient);
 
   scategories = signal<Scategorie[]>([]);
 
@@ -27,5 +27,21 @@ export class ScategoriesService {
         scategories.filter((sc) => sc._id !== scategorie._id)
       );
     });
+  }
+
+  createScategorie(scategorie: Scategorie) {
+    this.http.post<Scategorie>(this.url, scategorie).subscribe(data => {
+      return this.scategories.update(scategories => [data, ...scategories])
+    })
+  }
+
+  updateScategorie(scategorie: Scategorie) {
+    this.http.put<Scategorie>(`${this.url}/${scategorie._id}`, scategorie).subscribe(data => {
+      this.scategories.update(scategories => scategories.map(sc => sc._id === scategorie._id ? scategorie : sc))
+    })
+  }
+
+  getScategorie(id: object) {
+    return this.http.get(`${this.url}/${id}`)
   }
 }
