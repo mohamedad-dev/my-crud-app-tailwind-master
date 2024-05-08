@@ -1,3 +1,5 @@
+import { Scategorie } from "./scategorie";
+
 export class Article {
   _id?: object;
   designation?: string;
@@ -6,5 +8,6 @@ export class Article {
   prix?: number;
   qtestock?: number;
   reference?: string;
-  scategorieID?: object;
+  scategorieID?: Scategorie;
+  // scategorieID?: object;
 }

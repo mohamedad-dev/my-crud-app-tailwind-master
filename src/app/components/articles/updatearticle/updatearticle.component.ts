@@ -22,11 +22,11 @@ export class UpdatearticleComponent {
   private route = inject(ActivatedRoute)
   private router = inject(Router)
 
-  private Id: object ;
+  private articleId: object ;
 
   ngOnInit() {
-    this.Id = this.route.snapshot.params["id"];
-    this.articleService.getArticle(this.Id).subscribe(data => this.updatedArticle.set(data))
+    this.articleId = this.route.snapshot.params["id"];
+    this.articleService.getArticle(this.articleId).subscribe(data => this.updatedArticle.set(data))
     this.scategories = this.scategorieService.getScategories()
   }
 

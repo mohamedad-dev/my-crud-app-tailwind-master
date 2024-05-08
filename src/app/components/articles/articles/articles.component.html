@@ -15,6 +15,7 @@
         <tr>
           <th scope="col" class="px-6 py-3">Reference</th>
           <th scope="col" class="px-6 py-3">Designation</th>
+          <th scope="col" class="px-6 py-3 bg-yellow-400">Sous categorie</th>
           <th scope="col" class="px-6 py-3">Stock</th>
           <th scope="col" class="px-6 py-3">Price</th>
           <th scope="col" class="px-6 py-3">Image</th>
@@ -33,6 +34,10 @@
           <td class="px-6 py-4 font-semibold text-gray-900 border">
             {{ article.designation }}
           </td>
+          <td class="px-6 py-4 font-semibold text-gray-900 border bg-yellow-200">
+            {{ article.scategorieID?.nomscategorie }}
+          </td>
+          
           <td class="px-6 py-4 font-semibold text-gray-900 border">
             {{ article.qtestock }}
           </td>

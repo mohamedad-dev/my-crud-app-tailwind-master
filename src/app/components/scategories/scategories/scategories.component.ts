@@ -25,7 +25,7 @@ export class ScategoriesComponent {
     this.serviceScategories.deleteScategorie(scategorie);
   }
 
-  // getCategorieName(id: object) {
+  // getCategorieName(id: object | undefined) {
   //   let categorieName: string | undefined = '';
   //   this.serviceCategories
   //     .findCategoryById(id)
