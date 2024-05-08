@@ -1,13 +1,13 @@
 import { Component, inject, signal } from '@angular/core';
 import { Categorie } from '../../../classes/categorie';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CategoriesService } from '../../../services/categories.service';
 
 @Component({
   selector: 'app-updatecategorie',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './updatecategorie.component.html',
   styleUrl: './updatecategorie.component.css',
 })
@@ -41,10 +41,6 @@ export class UpdatecategorieComponent {
 
   updateCategorie(categorie: Categorie) {
     this.categoriesService.updateCategory(categorie);
-    this.router.navigate(['/categories']);
-  }
-
-  goBack() {
     this.router.navigate(['/categories']);
   }
 }

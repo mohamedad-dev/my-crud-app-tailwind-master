@@ -1,5 +1,6 @@
 <div class="w-full max-w-lg mx-auto my-6">
-    <form class="bg-white shadow rounded px-8 pt-6 pb-8" >
+    <form class="bg-white shadow rounded px-8 pt-6 pb-8" (ngSubmit)="addArticle()"
+    >
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="reference">
           Article reference
@@ -85,9 +86,9 @@
         />
       </div>
       <div class="mb-4">
-        <label for="scategorieID" class="block text-gray-700 text-sm font-bold mb-2">Select an option</label>
+        <label for="scategorieID" class="block text-gray-700 text-sm font-bold mb-2">Select Sous Categories</label>
         <select id="scategorieID" name="scategorieID" [(ngModel)]="newArticle().scategorieID" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-          <option selected>Select</option>
+          <option class="bg-yellow-200" selected>-- Select a sous categorie --</option>
           @for (scategorie of scategories(); track scategorie._id) {
             <option value={{scategorie._id}}>{{scategorie.nomscategorie}}</option>
           }
@@ -100,7 +101,6 @@
         <button
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           type="submit"
-          (click)="addArticle()"
         >
           Add category
         </button>

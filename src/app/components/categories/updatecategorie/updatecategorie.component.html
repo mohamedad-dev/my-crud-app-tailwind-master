@@ -1,5 +1,6 @@
 <div class="w-full max-w-lg mx-auto my-6">
-  <form class="bg-white shadow rounded px-8 pt-6 pb-8">
+  <form class="bg-white shadow rounded px-8 pt-6 pb-8" (ngSubmit)="updateCategorie(updatedCategorie())"
+  >
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
         Category name
@@ -32,17 +33,12 @@
       <button
         class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         type="submit"
-        (click)="updateCategorie(updatedCategorie())"
       >
         Update category
       </button>
-      <button
-        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-        type="button"
-        (click)="goBack()"
-      >
-        Go back
-      </button>
+      <a         class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      routerLink="/categories">Go Back</a>
+     
     </div>
   </form>
 </div>
